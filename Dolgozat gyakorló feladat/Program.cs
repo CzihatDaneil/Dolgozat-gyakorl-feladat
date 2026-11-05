@@ -28,8 +28,22 @@ else {
         {
             if (int.TryParse(adatok[3], out int napiDij))
             {
-                eszkozok.Add(new Eszkoz(adatok[0], adatok[1], adatok[2], adatok[3]));
+        
+
+                eszkozok.Add(new Eszkoz(azonosito, nev, kategoria,napiDij));
             }
+            else
+            {
+                Console.WriteLine($"[HIBA] A(z) {azonosito} azonosítójú eszköz adatai hibásak, átugorva!");
+            }
+        }
+        if (adatok.Length == 5)
+        {
+            int.TryParse(adatok[3], out int napiDij);
+            int.TryParse(adatok[4], out int keszlet);
+
+            eszkozok.Add(new Eszkoz(azonosito, nev, kategoria, napiDij, keszlet));
+            
         }
     }    
 }
